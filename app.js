@@ -7,6 +7,16 @@ const list = document.getElementById('todo-list');
 function addTask(task) {
   const li = document.createElement('li');
   li.textContent = task;
+
+  // Add a delete button to each task
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = "Delete";
+  deleteBtn.style.marginLeft = "10px";
+  deleteBtn.onclick = function() {
+    li.remove();
+  };
+
+  li.appendChild(deleteBtn);
   list.appendChild(li);
 }
 
