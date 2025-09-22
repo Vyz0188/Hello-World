@@ -8,11 +8,17 @@ function addTask(task) {
   const li = document.createElement('li');
   li.textContent = task;
 
+  // Toggle completed status on click
+  li.onclick = function() {
+    li.classList.toggle('completed');
+  };
+
   // Add a delete button to each task
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = "Delete";
   deleteBtn.style.marginLeft = "10px";
-  deleteBtn.onclick = function() {
+  deleteBtn.onclick = function(event) {
+    event.stopPropagation(); // Prevent toggling completed when deleting
     li.remove();
   };
 
